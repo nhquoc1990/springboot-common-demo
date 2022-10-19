@@ -1,48 +1,28 @@
 package com.example.demo.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
-@Table(name = "users")
+@Table(name = "roles")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class User {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Size(max = 255, min = 3)
     private String name;
-
-    @Column(name = "birth_day")
-    @NotNull(message = "Invalid Date")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date birthDay;
-
-    @Size(max = 255, min = 3, message = "Please input address between 3 and 255")
-    private String address;
-
-    @NotNull
-    @NotBlank
-    private String password;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)

@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 public class MainTest {
     public static void main(String[] args){
         List<User> userList = Arrays.asList(
-                new User(1L, "name1", new Date(), "address3", "password2"),
-                new User(2L, "name3", new Date(), "address2", "password6"),
-                new User(3L, "name2", new Date(), "address1", "password3")
+                User.builder().id(1L).name("name1").birthDay(new Date()).password("password1").address("address3").build(),
+                User.builder().id(2L).name("name3").birthDay(new Date()).password("password6").address("address2").build(),
+                User.builder().id(3L).name("name2").birthDay(new Date()).password("password3").address("address1").build()
         );
 
         userList.sort((u1, u2) -> {
